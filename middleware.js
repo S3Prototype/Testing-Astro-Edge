@@ -9,5 +9,5 @@ export default function middleware(request) {
   if (url.pathname === "/admin") {
     url.pathname = "/redirected";
   }
-  return Response.redirect(url);
+  return Response.error();
 }
