@@ -7,7 +7,9 @@ export default function middleware(request) {
   const url = new URL(request.url);
   // You can retrieve IP location or cookies here.
   if (url.pathname === "/admin") {
-    url.pathname = "/redirected";
+    return new Response(null, {
+      status: 404,
+      statusText: "Not found",
+    });
   }
-  return Response.error();
 }
