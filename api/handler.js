@@ -2,6 +2,14 @@
 //   runtime: "edge",
 // };
 
-export default (req) => {
-  return new Response(`Hello, from ${req.url} I'm now an Edge Function!`);
-};
+export default function handler(request, response) {
+  response.status(200).json({
+    body: request.body,
+    query: request.query,
+    cookies: request.cookies,
+  });
+}
+
+// export default (req) => {
+//   return new Response(`Hello, from ${req.url} I'm now an Serverless Function!`);
+// };
